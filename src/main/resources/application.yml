@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: piggybank-backend
+
+  datasource:
+    # 로컬 시연용 H2 파일 DB. 프로젝트 루트 아래 ./data/piggybank.mv.db 에 저장되어
+    # 서버를 껐다 켜도 데이터가 유지됩니다. 초기화하려면 ./data 폴더를 지우고 재기동하세요.
+    url: jdbc:h2:file:./data/piggybank;MODE=Oracle;NON_KEYWORDS=USER,VALUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: Asia/Seoul
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.kakaobank.piggybank: DEBUG
+    org.hibernate.SQL: DEBUG
