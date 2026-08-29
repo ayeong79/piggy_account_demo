@@ -11,7 +11,7 @@ import java.util.Optional;
 
 /**
  * PIG_DTL은 (PIG_ACNO, SVC_CD)별 이력 테이블이라 "현재 설정"은 항상
- * "최신 SEQ_ID 행"으로 조회해야 한다 (1.3 코멘트 2단계).
+ * "최신 SEQ_ID 행"으로 조회.
  */
 public interface PiggyBankDetailRepository extends JpaRepository<PiggyBankDetail, Long> {
 

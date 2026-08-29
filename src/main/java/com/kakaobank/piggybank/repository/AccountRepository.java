@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * ACT_MAS 공통 리포지토리. Account는 추상클래스(Single Table Inheritance)이므로
+ * ACT_MAS 공통 리포지토리.
  * 이 리포지토리는 DdaAccount/PiggyBankAccount 구분 없이 ACNO로만 조회한다.
  */
 public interface AccountRepository extends JpaRepository<Account, String> {

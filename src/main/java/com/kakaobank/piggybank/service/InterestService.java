@@ -17,8 +17,7 @@ import java.util.Optional;
  * 입출금이자유로운예금약관 제2조③: "...계좌해지 또는 추가 입출금 거래 발생일에 일괄계산하여 지급".
  *
  * 1.2(비우기 2단계) / 1.3(자동저축 6단계) / 1.4(해지 2단계)가 공통으로 재사용하는
- * "미정산 이자 계산 및 정산" 로직. 실제 상품 이자 계산은 훨씬 정교하지만(일할, 세금 등),
- * 이 데모에서는 단리(단순 비례) 계산으로 단순화했다 — README의 "단순화한 부분" 참고.
+ * "미정산 이자 계산 및 정산" 로직. 
  */
 @Service
 public class InterestService {
@@ -57,7 +56,7 @@ public class InterestService {
 
         Optional<ProductRateHistory> rate = productRateHistoryRepository.findApplicableRate(accd, toDt);
         if (rate.isEmpty()) {
-            return SettlementResult.NONE; // 금리표 미등록 — 데모에서는 조용히 skip
+            return SettlementResult.NONE; // 금리표 미등록 — 데모에서는 skip
         }
 
         long days = ChronoUnit.DAYS.between(fromDt, toDt) + 1;

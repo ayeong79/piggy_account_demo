@@ -18,11 +18,12 @@ import java.time.LocalDate;
 /**
  * ACT_MAS (계좌 — 입출금계좌/저금통계좌 공통).
  *
- * 물리적으로 ACT_MAS는 단일 테이블이고 ACCD 컬럼('DDA'/'PIG')으로 상품구분이 갈립니다.
+ * 물리적으로 ACT_MAS는 단일 테이블이고 ACCD 컬럼('DDA' (입출금계좌) /'PIG' (저금통계좌) )으로 상품구분이 갈립니다.
  * 클래스 다이어그램에서 합의한 대로, ACT_MAS의 모든 컬럼은 어떤 ACCD든 동일하게 갖는
  * 물리 컬럼이므로 전부 이 추상 클래스(Account)에 두고, {@link DdaAccount}/{@link PiggyBankAccount}는
- * 속성 없이 동작(메서드)만 다릅니다 (Single Table Inheritance).
+ * 속성 없이 동작(메서드)만 다릅니다 
  */
+
 @Entity
 @Table(name = "ACT_MAS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

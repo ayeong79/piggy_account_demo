@@ -17,8 +17,8 @@ import java.util.List;
 
 /**
  * 1.3 자동저축(동전모으기) 배치 오케스트레이터 — 대상 판별(2단계) 후 저금통마다
- * {@link AutoSaveItemProcessor}를 호출한다. 저금통 한 건의 실패가 다른 건 처리를
- * 막지 않도록 여기서 예외를 잡아 FAIL 이력으로 남긴다 (9단계: 건별 COMMIT).
+ * {@link AutoSaveItemProcessor}를 호출한다. 저금통 한 건의 실패가 다른 건 처리를 막지 않도록 
+ * 여기서 예외를 잡아 FAIL 이력으로 남긴다 (9단계: 건별 COMMIT).
  */
 @Service
 public class AutoSaveBatchService {

@@ -22,11 +22,13 @@ import java.time.LocalDate;
 /**
  * 1.3 자동저축(동전모으기) — 저금통 1건 처리 (플로우차트 코멘트.txt 1.3의 3~8단계).
  *
- * {@link #attemptProcess}와 {@link #recordFailure}는 각각 REQUIRES_NEW로 별도 트랜잭션에서
- * 실행된다 (9단계: 건별 COMMIT — 특정 저금통에서 예외가 나도 다른 저금통 처리에 영향을 주지
- * 않도록 격리). 반드시 스프링 프록시를 거쳐 호출되어야 하므로 {@link AutoSaveBatchService}에서
- * 이 빈을 주입받아 호출한다(자기 자신 호출 금지).
+ * {@link #attemptProcess}와 {@link #recordFailure}는 각각 REQUIRES_NEW로 별도 트랜잭션에서 실행
+ * (9단계: 건별 COMMIT — 특정 저금통에서 예외가 나도 다른 저금통 처리에 영향을 주지않도록 격리). 
+ * 
+ * 반드시 스프링 프록시를 거쳐 호출되어야 하므로 {@link AutoSaveBatchService}에서
+ * 이 빈을 주입받아 호출한다(this.호출 금지).
  */
+
 @Service
 public class AutoSaveItemProcessor {
 

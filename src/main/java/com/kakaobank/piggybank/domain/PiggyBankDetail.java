@@ -18,9 +18,9 @@ import java.time.LocalDateTime;
  * (PIG_ACNO, SVC_CD)별로 "최신 SEQ_ID 행"이 현재 설정 상태다. UPDATE가 아니라
  * 항상 새 행을 INSERT해서 이력을 남긴다 (1.4 해지 4단계: 서비스 OFF 이력도 이 방식).
  *
- * [모델링 메모] 물리 PK는 (PIG_ACNO, SVC_CD, SEQ_ID) 복합키지만 SEQ_ID가 테이블
- * 전체에서 유일한 IDENTITY이므로 JPA @Id는 SEQ_ID 단일 컬럼으로 둔다.
+ * 물리 PK는 (PIG_ACNO, SVC_CD, SEQ_ID) 복합키지만 SEQ_ID가 테이블 전체에서 유일한 IDENTITY이므로 JPA @Id는 SEQ_ID 단일 컬럼으로 둔다.
  */
+
 @Entity
 @Table(name = "PIG_DTL")
 @Getter
